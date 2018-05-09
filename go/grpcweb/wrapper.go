@@ -112,8 +112,8 @@ func (w *WrappedGrpcServer) HandleGrpcWebRequest(resp http.ResponseWriter, req *
 }
 
 var websocketUpgrader = websocket.Upgrader{
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
+	ReadBufferSize:  1024*5,
+	WriteBufferSize: 1024*5,
 	CheckOrigin:     func(r *http.Request) bool { return true },
 	Subprotocols:    []string{"grpc-websockets"},
 }
